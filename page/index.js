@@ -89,6 +89,4 @@ class Page extends Component {
         )
     }
 }
-// export default Shop;
-
 export default Page;
