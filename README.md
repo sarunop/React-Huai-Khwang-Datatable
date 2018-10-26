@@ -1,6 +1,3 @@
-// page.js
-
-
 import React, { Component } from 'react';
 import Table from '../table';
 
@@ -92,6 +89,4 @@ class Page extends Component {
         )
     }
 }
-// export default Shop;
-
 export default Page;
