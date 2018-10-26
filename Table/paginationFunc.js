@@ -94,20 +94,29 @@ const checkPropsImportant = (props) => {
         pathApiGetItemAccordingPage != '' &&
         theadColumn.length > 0 &&
         fields.length > 0 &&
-        primaryKey != '') &&
-        (theadColumn.length == fields.length)
+        primaryKey != ''
+    )
     ) {
-        if (search.open) {
-            if (search.pathApiGetItemAccordingPageAfterSearch != '' && search.pathApiGetTotalItemAfterSearch != '') {
-                return true;
-            } else {
-                alert('กรุณาเพิ่ม pathApiGetItemAccordingPageAfterSearch pathApiGetTotalItemAfterSearch');
-                return false;
-            }
 
+
+
+        if ((theadColumn.length == fields.length)) {
+            if (search.open) {
+                if (search.pathApiGetItemAccordingPageAfterSearch != '' && search.pathApiGetTotalItemAfterSearch != '') {
+                    return true;
+                } else {
+                    alert('กรุณาเพิ่ม pathApiGetItemAccordingPageAfterSearch pathApiGetTotalItemAfterSearch');
+                    return false;
+                }
+
+            } else {
+                return true;
+            }
         } else {
-            return true;
+            alert('กรุณาตั้งค่า pathApiGetItemAccordingPage theadColumn fields primaryKey ให้ครบ');
+            return false;
         }
+
     } else {
         alert('กรุณาตั้งค่า pathApiGetItemAccordingPage theadColumn fields primaryKey ให้ครบ');
         return false;

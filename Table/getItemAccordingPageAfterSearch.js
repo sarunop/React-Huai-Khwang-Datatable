@@ -48,7 +48,7 @@ const checkConditionApi = (checkHeadersMethodData, apiGetItemAccordingPageAfterS
     if (checkHeadersMethodData.method == 'get') {
         //get headers=true
         if (checkHeadersMethodData.headers) {
-            return axios.get(apiGetItemAccordingPageAfterSearch.path, params, { apiGetItemAccordingPageAfterSearchHeaders })
+            return axios.get(apiGetItemAccordingPageAfterSearch.path, params, { headers: apiGetItemAccordingPageAfterSearchHeaders })
                 .then(res => {
                     return res
                 })
@@ -69,7 +69,7 @@ const checkConditionApi = (checkHeadersMethodData, apiGetItemAccordingPageAfterS
     } else {
         //post headers=true
         if (checkHeadersMethodData.headers) {
-            return axios.post(apiGetItemAccordingPageAfterSearch.path, apiGetItemAccordingPageAfterSearchData, { apiGetItemAccordingPageAfterSearchHeaders })
+            return axios.post(apiGetItemAccordingPageAfterSearch.path, apiGetItemAccordingPageAfterSearchData, { headers: apiGetItemAccordingPageAfterSearchHeaders })
                 .then(res => {
                     return res
                 })

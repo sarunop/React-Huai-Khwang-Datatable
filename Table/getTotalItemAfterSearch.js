@@ -45,7 +45,9 @@ const checkConditionApi = (checkHeadersMethodData, apigetTotalItemAfterSearch, d
     if (checkHeadersMethodData.method == 'get') {
         //get headers=true
         if (checkHeadersMethodData.headers) {
-            return axios.get(apigetTotalItemAfterSearch.path, params, { apigetTotalItemAfterSearchHeaders })
+            console.log(checkHeadersMethodData)
+            console.log(apigetTotalItemAfterSearchHeaders)
+            return axios.get(apigetTotalItemAfterSearch.path, params, { headers: apigetTotalItemAfterSearchHeaders })
                 .then(res => {
                     return res
                 })
@@ -66,7 +68,7 @@ const checkConditionApi = (checkHeadersMethodData, apigetTotalItemAfterSearch, d
     } else {
         //post headers=true
         if (checkHeadersMethodData.headers) {
-            return axios.post(apigetTotalItemAfterSearch.path, apigetTotalItemAfterSearchData, { apigetTotalItemAfterSearchHeaders })
+            return axios.post(apigetTotalItemAfterSearch.path, apigetTotalItemAfterSearchData, { headers: apigetTotalItemAfterSearchHeaders })
                 .then(res => {
                     return res
                 })

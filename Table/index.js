@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Thead from './Thead.js';
 import Tbody from './Tbody.js';
+import Tfoot from './Tfoot.js';
 import PaginationList from './paginationList.js';
 
 // import ProductExportExcel from '../../exportExcel/ProductExportExcel';
@@ -18,10 +19,10 @@ import { getApiGetTotalItem } from './getApiGetTotalItem.js';
 import { getItemAccordingPage } from './getItemAccordingPage.js';
 import { getItemAccordingPageAfterSearch } from './getItemAccordingPageAfterSearch.js';
 import { getTotalItemAfterSearch } from './getTotalItemAfterSearch.js';
+import { buttonDelete } from './buttonDelete.js';
 
 //css
 import './table.scss';
-
 
 class Table extends Component {
     constructor(props) {
@@ -46,18 +47,6 @@ class Table extends Component {
             nav: {
                 EditItems: false,
             },
-            //loading: true,
-            // excel: {
-            //     ExcelSheet: 'Product',
-            //     thead: {
-            //         column1: 'ลำดับ',
-            //         column2: 'ชื่อสินค้า',
-            //         column3: 'ประเภท',
-            //         column4: 'ราคา'
-            //     },
-            //     show: false
-            // },
-
         }
     }
 
@@ -256,24 +245,30 @@ class Table extends Component {
         })
             .then((willDelete) => {
                 if (willDelete) {
-                    let setId = { id: id }
-                    axios.post(this.props.settingTable.buttonDelete.apiDelete, setId)
-                        .then(res => {
-                            let Items = [...this.state.Items]
-                            Items.forEach((element, index) => {
-                                if (element.id == res.data.input) { Items.splice(index, 1); }
-                            });
-                            return Items;
-                        })
-                        .then(Items => {
-                            this.setState({ Items: Items });
-                            //pagination( จำนวนข้อมูล , หน้าเริ่มต้น , จำนวนข้อมูลต่อ 1 หน้า )
-                            let Pagination = pagination(this.state.Items, this.state.currentPage, this.state.todosPerPage);
-                            if (Pagination.listItems.length == 0) {
-                                let result = handleClickButtonPage(-1, this.state.numberStart, this.state.todosPerPage, this.state.currentPage, this.state.totalNumberProduct)
-                                this.setState(result);
-                            }
-                        })
+
+                    let defultParams = {
+                        params: { id: id }
+                    }
+
+                    buttonDelete(this.props.settingTable.buttonDelete, defultParams);
+
+                    // axios.post(this.props.settingTable.buttonDelete.apiDelete, setId)
+                    //     .then(res => {
+                    //         let Items = [...this.state.Items]
+                    //         Items.forEach((element, index) => {
+                    //             if (element.id == res.data.input) { Items.splice(index, 1); }
+                    //         });
+                    //         return Items;
+                    //     })
+                    //     .then(Items => {
+                    //         this.setState({ Items: Items });
+                    //         //pagination( จำนวนข้อมูล , หน้าเริ่มต้น , จำนวนข้อมูลต่อ 1 หน้า )
+                    //         let Pagination = pagination(this.state.Items, this.state.currentPage, this.state.todosPerPage);
+                    //         if (Pagination.listItems.length == 0) {
+                    //             let result = handleClickButtonPage(-1, this.state.numberStart, this.state.todosPerPage, this.state.currentPage, this.state.totalNumberProduct)
+                    //             this.setState(result);
+                    //         }
+                    //     })
                 }
             });
     }
@@ -397,6 +392,13 @@ class Table extends Component {
                     <tbody>
                         {this.listItems()}
                     </tbody>
+                    <tfoot>
+                        <tr>
+                            {this.props.settingTable.tfootColumn.open && <Tfoot tfootColumn={this.props.settingTable.tfootColumn.column}
+                                buttonEdit={this.props.settingTable.buttonEdit}
+                                buttonDelete={this.props.settingTable.buttonDelete} />}
+                        </tr>
+                    </tfoot>
                 </table>
                 <div id="pagination">
                     {this.state.buttons.open && <button id='-1' className="btn btn-light btnBack" onClick={this.clickButtonPage} disabled={this.state.buttons.buttonBack == false}>ย้อนกลับ</button>}

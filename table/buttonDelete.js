@@ -2,7 +2,12 @@ import axios from "axios";
 import { isEmpty, mix } from './paginationFunc.js'
 
 
-const getItemAccordingPageCheckHeadersMethodData = (apiGetItemAccordingPage, defultParams) => {
+
+
+
+
+
+const buttonDeleteCheckHeadersMethodData = (apiGetItemAccordingPage, defultParams) => {
     let headers = false
     let param = {};
     if (apiGetItemAccordingPage.headers) {
@@ -34,10 +39,11 @@ const getItemAccordingPageCheckHeadersMethodData = (apiGetItemAccordingPage, def
 
 
 
-const checkConditionApi = (checkHeadersMethodData, apiGetItemAccordingPage, defultParams) => {
 
-    let apiGetItemAccordingPageHeaders = apiGetItemAccordingPage.headers;
-    let apiGetItemAccordingPageData = apiGetItemAccordingPage.data;
+const checkConditionApi = (checkHeadersMethodData, buttonDelete, defultParams) => {
+
+    let buttonDeleteHeaders = buttonDelete.headers;
+    let buttonDeleteData = buttonDelete.data;
     let params = {};
     if (checkHeadersMethodData.method == true) {
         params = {
@@ -50,7 +56,7 @@ const checkConditionApi = (checkHeadersMethodData, apiGetItemAccordingPage, defu
     if (checkHeadersMethodData.method == 'get') {
         //get headers=true
         if (checkHeadersMethodData.headers) {
-            return axios.get(apiGetItemAccordingPage.path, params, { headers: apiGetItemAccordingPageHeaders })
+            return axios.get(buttonDelete.path, params, { headers: buttonDeleteHeaders })
                 .then(res => {
                     return res
                 })
@@ -60,7 +66,7 @@ const checkConditionApi = (checkHeadersMethodData, apiGetItemAccordingPage, defu
         }
         //get headers=false
         else {
-            return axios.get(apiGetItemAccordingPage.path, params)
+            return axios.get(buttonDelete.path, params)
                 .then(res => {
                     return res
                 })
@@ -71,7 +77,11 @@ const checkConditionApi = (checkHeadersMethodData, apiGetItemAccordingPage, defu
     } else {
         //post headers=true
         if (checkHeadersMethodData.headers) {
-            return axios.post(apiGetItemAccordingPage.path, apiGetItemAccordingPageData, { headers: apiGetItemAccordingPageHeaders })
+            console.log('params')
+            console.log(params)
+            console.log(buttonDeleteHeaders)
+            console.log(checkHeadersMethodData)
+            return axios.post(buttonDelete.path, params.params, { headers: buttonDeleteHeaders })
                 .then(res => {
                     return res
                 })
@@ -81,7 +91,7 @@ const checkConditionApi = (checkHeadersMethodData, apiGetItemAccordingPage, defu
         }
         //get headers=false
         else {
-            return axios.post(apiGetItemAccordingPage.path, apiGetItemAccordingPageData)
+            return axios.post(buttonDelete.path, params.params)
                 .then(res => {
                     return res
                 })
@@ -92,7 +102,10 @@ const checkConditionApi = (checkHeadersMethodData, apiGetItemAccordingPage, defu
     }
 }
 
-export const getItemAccordingPage = (apiGetItemAccordingPage, defultParams) => {
-    let checkHeadersMethodData = getItemAccordingPageCheckHeadersMethodData(apiGetItemAccordingPage, defultParams)
-    return checkConditionApi(checkHeadersMethodData, apiGetItemAccordingPage, defultParams);
+
+
+
+export const buttonDelete = (buttonDelete, defultParams) => {
+    let checkHeadersMethodData = buttonDeleteCheckHeadersMethodData(buttonDelete, defultParams);
+    return checkConditionApi(checkHeadersMethodData, buttonDelete, defultParams);
 }

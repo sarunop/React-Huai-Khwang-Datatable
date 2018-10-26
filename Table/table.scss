@@ -3,18 +3,35 @@
   }
 
   .trDataProduct:hover{
-    
     background-color:#f5f2e4;
   }
 
 
   #table{
     width:100%;
-    border:1px solid #fff;
+    border:1px solid #000;
+    color:#000;
+    thead{
+        tr{
+            td{
+                padding-top:10px;
+                padding-bottom:10px;
+            }
+        }
+     
+    }
+    tfoot{
+        tr{
+            td{
+                padding-top:10px;
+                padding-bottom:10px;
+            }
+        }
+    }
     tr {
-        border:1px solid #fff;
+        border:1px solid #000;
         td{
-            border:1px solid #fff;
+            border:1px solid #000;
             text-align: center;
         }
     }

@@ -35,13 +35,13 @@ const checkConditionApi = (checkHeadersMethodData, apiGetTotalItem) => {
     let params = {
         params: apiGetTotalItemData
     }
-
+    console.log(apiGetTotalItemHeaders)
     if (checkHeadersMethodData.method == 'get') {
         //get headers=true
         if (checkHeadersMethodData.headers) {
             //get headers=true data=true
             if (checkHeadersMethodData.data) {
-                return axios.get(apiGetTotalItem.path, params, { apiGetTotalItemHeaders })
+                return axios.get(apiGetTotalItem.path, params, { headers: apiGetTotalItemHeaders })
                     .then(res => {
                         return res
                     })
@@ -51,7 +51,7 @@ const checkConditionApi = (checkHeadersMethodData, apiGetTotalItem) => {
             }
             //get headers=true data=false 
             else {
-                return axios.get(apiGetTotalItem.path, {}, { apiGetTotalItemHeaders })
+                return axios.get(apiGetTotalItem.path, {}, { headers: apiGetTotalItemHeaders })
                     .then(res => {
                         return res
                     })
@@ -88,7 +88,7 @@ const checkConditionApi = (checkHeadersMethodData, apiGetTotalItem) => {
         if (checkHeadersMethodData.headers) {
             //get headers=true data=true
             if (checkHeadersMethodData.data) {
-                return axios.post(apiGetTotalItem.path, apiGetTotalItemData, { apiGetTotalItemHeaders })
+                return axios.post(apiGetTotalItem.path, apiGetTotalItemData, { headers: apiGetTotalItemHeaders })
                     .then(res => {
                         return res
                     })
@@ -98,7 +98,7 @@ const checkConditionApi = (checkHeadersMethodData, apiGetTotalItem) => {
             }
             //get headers=true data=false 
             else {
-                return axios.post(apiGetTotalItem.path, {}, { apiGetTotalItemHeaders })
+                return axios.post(apiGetTotalItem.path, {}, { headers: apiGetTotalItemHeaders })
                     .then(res => {
                         return res
                     })
