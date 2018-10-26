@@ -217,7 +217,29 @@ class Table extends Component {
                     let defultParams = {
                         params: { id: id }
                     }
-                    buttonDelete(this.props.settingTable.buttonDelete, defultParams);
+                    buttonDelete(this.props.settingTable.buttonDelete, defultParams)
+                        .then(res => {
+                            let Items = [...this.state.Items]
+                            Items.forEach((element, index) => {
+                                for (const key in element) {
+                                    if (element.hasOwnProperty(key)) {
+                                        if (key == this.props.settingTable.primaryKey) {
+                                            if (element[key] == res.data.input) { Items.splice(index, 1); }
+                                        }
+                                    }
+                                }
+                            });
+                            return Items;
+                        })
+                        .then(Items => {
+                            this.setState({ Items: Items });
+                            //pagination( จำนวนข้อมูล , หน้าเริ่มต้น , จำนวนข้อมูลต่อ 1 หน้า )
+                            let Pagination = pagination(this.state.Items, this.state.currentPage, this.state.todosPerPage);
+                            if (Pagination.listItems.length == 0) {
+                                let result = handleClickButtonPage(-1, this.state.numberStart, this.state.todosPerPage, this.state.currentPage, this.state.totalNumberProduct)
+                                this.setState(result);
+                            }
+                        })
                 }
             });
     }
