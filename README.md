@@ -102,7 +102,8 @@ export default Page;
 1. npm i --save @fortawesome/react-fontawesome
 2. npm install axios
 3. npm install --save sweetalert
-4.npm install --save react-router-dom
+4. npm install --save react-router-dom
+6. import 'bootstrap/dist/css/bootstrap.min.css';
 5. เป็น scss ถ้าจะแก้เป็น css ก็ตามสะดวกเลย
 
 
