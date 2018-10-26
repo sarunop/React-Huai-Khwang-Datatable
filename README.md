@@ -1,4 +1,4 @@
-สิ่งที่จำเป้นต้อง install 
+สิ่งที่จำเป็นต้อง install 
 1. npm i --save @fortawesome/react-fontawesome
 2. npm install axios
 3. npm install --save sweetalert
