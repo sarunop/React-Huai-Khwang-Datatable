@@ -5,9 +5,7 @@ class Page extends Component {
 
     constructor(props) {
         super(props)
-
         this.state = {
-
             /*
                 ข้อมุลที่จำเป็นต้องมี
                 pathApiGetTotalItem

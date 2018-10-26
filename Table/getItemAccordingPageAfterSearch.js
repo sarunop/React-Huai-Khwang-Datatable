@@ -1,25 +1,21 @@
 import axios from "axios";
 import { isEmpty, mix } from './paginationFunc.js'
-
 const getItemAccordingPageAfterSearchCheckHeadersMethodData = (apiGetItemAccordingPageAfterSearch, defultParams) => {
     let headers = false
     let param = {};
     if (apiGetItemAccordingPageAfterSearch.headers) {
         let apiGetItemAccordingPageAfterSearchHeaders = apiGetItemAccordingPageAfterSearch.headers;
-        // true = {}
         let objHeaders = isEmpty(apiGetItemAccordingPageAfterSearchHeaders);
         if (!objHeaders) {
             headers = true
         }
     }
-
     let method = '';
     (apiGetItemAccordingPageAfterSearch.method ? method = apiGetItemAccordingPageAfterSearch.method : method = 'get')
 
     let data = false
     if (apiGetItemAccordingPageAfterSearch.data) {
         let apiGetItemAccordingPageAfterSearchData = apiGetItemAccordingPageAfterSearch.data;
-        // true = {}
         let objData = isEmpty(apiGetItemAccordingPageAfterSearchData);
         if (!objData) {
             data = true
@@ -28,12 +24,7 @@ const getItemAccordingPageAfterSearchCheckHeadersMethodData = (apiGetItemAccordi
     }
     return { headers: headers, method: method, data: data, param: param }
 }
-
-
-
-
 const checkConditionApi = (checkHeadersMethodData, apiGetItemAccordingPageAfterSearch, defultParams) => {
-
     let apiGetItemAccordingPageAfterSearchHeaders = apiGetItemAccordingPageAfterSearch.headers;
     let apiGetItemAccordingPageAfterSearchData = apiGetItemAccordingPageAfterSearch.data;
     let params = {};
@@ -44,9 +35,7 @@ const checkConditionApi = (checkHeadersMethodData, apiGetItemAccordingPageAfterS
     } else {
         params = defultParams
     }
-
     if (checkHeadersMethodData.method == 'get') {
-        //get headers=true
         if (checkHeadersMethodData.headers) {
             return axios.get(apiGetItemAccordingPageAfterSearch.path, params, { headers: apiGetItemAccordingPageAfterSearchHeaders })
                 .then(res => {
@@ -56,7 +45,6 @@ const checkConditionApi = (checkHeadersMethodData, apiGetItemAccordingPageAfterS
                     return err
                 })
         }
-        //get headers=false
         else {
             return axios.get(apiGetItemAccordingPageAfterSearch.path, params)
                 .then(res => {
@@ -67,7 +55,6 @@ const checkConditionApi = (checkHeadersMethodData, apiGetItemAccordingPageAfterS
                 })
         }
     } else {
-        //post headers=true
         if (checkHeadersMethodData.headers) {
             return axios.post(apiGetItemAccordingPageAfterSearch.path, apiGetItemAccordingPageAfterSearchData, { headers: apiGetItemAccordingPageAfterSearchHeaders })
                 .then(res => {
@@ -77,7 +64,6 @@ const checkConditionApi = (checkHeadersMethodData, apiGetItemAccordingPageAfterS
                     return err
                 })
         }
-        //get headers=false
         else {
             return axios.post(apiGetItemAccordingPageAfterSearch.path, apiGetItemAccordingPageAfterSearchData)
                 .then(res => {

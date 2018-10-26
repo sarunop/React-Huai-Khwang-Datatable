@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
 class Tbody extends Component {
     Tbody = () => {
-
         let { Item, Fields, fieldsPrimaryKey, buttonEdit, buttonDelete } = this.props;
         let fieldsKey = '';
         let td = [];
