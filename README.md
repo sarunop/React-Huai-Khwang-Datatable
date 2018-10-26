@@ -104,7 +104,8 @@ export default Page;
 3. npm install --save sweetalert
 4. npm install --save react-router-dom
 6. import 'bootstrap/dist/css/bootstrap.min.css';
-5. เป็น scss ถ้าจะแก้เป็น css ก็ตามสะดวกเลย
+7. npm install react-loader-spinner --save
+8. เป็น scss ถ้าจะแก้เป็น css ก็ตามสะดวกเลย
 
 
 
