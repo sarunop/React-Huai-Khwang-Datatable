@@ -1,3 +1,11 @@
+สิ่งที่จำเป้นต้อง install 
+1. npm i --save @fortawesome/react-fontawesome
+2. npm install axios
+3. npm install --save sweetalert
+4.npm install --save react-router-dom
+
+----------------------------------------------------------------------------------------
+
 import React, { Component } from 'react';
 import Table from '../table';
 
