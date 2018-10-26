@@ -277,22 +277,11 @@ class Table extends Component {
 
     renderPageNumbers = () => {
         let Pagination = pagination(this.state.Items, this.state.currentPage, this.state.todosPerPage, this.state.totalPage, this.state.storeItems.length);
-        let numback = false;
-        let numNext = false;
-        return Pagination.pageNumbers.map((number, index) => {
-            let backCurrentPage = this.state.currentPage - 2;
-            let nextCurrentPage = this.state.currentPage + 2;
-            return (
-                <PaginationList key={index}
-                    numback={numback}
-                    numNext={numNext}
-                    backCurrentPage={backCurrentPage}
-                    nextCurrentPage={nextCurrentPage}
-                    number={number}
-                    currentPage={this.state.currentPage}
-                    onClickButtonPage={this.clickButtonPage} />
-            )
-        });
+        return <PaginationList
+            Pagination={Pagination}
+            currentPage={this.state.currentPage}
+            onClickButtonPage={this.clickButtonPage} />
+
     }
 
     renderSelectTodosPerPage = () => {
