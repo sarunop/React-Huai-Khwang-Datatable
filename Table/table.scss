@@ -1,0 +1,41 @@
+.trDataProduct{
+    cursor: pointer;
+  }
+
+  .trDataProduct:hover{
+    
+    background-color:#f5f2e4;
+  }
+
+
+  #table{
+    width:100%;
+    border:1px solid #fff;
+    tr {
+        border:1px solid #fff;
+        td{
+            border:1px solid #fff;
+            text-align: center;
+        }
+    }
+}
+
+#pagination{
+    margin-top: 16px;
+    margin-bottom: 16px;
+    
+        padding: 0px;
+        li{
+            margin-left:1px;
+            margin-right:1px;
+        }
+        .btnBack{
+            margin-right:1px;
+        }
+        .btnNext{
+            margin-left:1px;
+        }
+   
+ 
+  }
+  
