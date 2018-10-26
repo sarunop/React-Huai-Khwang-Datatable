@@ -1,24 +1,13 @@
-สิ่งที่จำเป็นต้อง install 
-1. npm i --save @fortawesome/react-fontawesome
-2. npm install axios
-3. npm install --save sweetalert
-4.npm install --save react-router-dom
-5. เป็น scss ถ้าจะแก้เป็น css ก็ตามสะดวกเลย
-
-
-
-เพื่อไม่ต้องรอให้การโหลดข้อมูลทั้งหมดเสร็จซึ้งอาจจะนาน
-จึงให้โหลดข้อมูลมาแบบหน้าต่อหน้าก่อน และเปลี่ยนมาใช้ข้อมูลทั้งหมดเมื่อการโหลดข้อมูลทั้งหมดเสร็จสิ้น
-
-----------------------------------------------------------------------------------------
-
 import React, { Component } from 'react';
 import Table from '../table';
 
 class Page extends Component {
+
     constructor(props) {
         super(props)
+
         this.state = {
+
             /*
                 ข้อมุลที่จำเป็นต้องมี
                 pathApiGetTotalItem
@@ -101,3 +90,24 @@ class Page extends Component {
     }
 }
 export default Page;
+
+
+
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+สิ่งที่จำเป็นต้อง install 
+1. npm i --save @fortawesome/react-fontawesome
+2. npm install axios
+3. npm install --save sweetalert
+4.npm install --save react-router-dom
+5. เป็น scss ถ้าจะแก้เป็น css ก็ตามสะดวกเลย
+
+
+
+เพื่อไม่ต้องรอให้การโหลดข้อมูลทั้งหมดเสร็จซึ้งอาจจะนาน
+จึงให้โหลดข้อมูลมาแบบหน้าต่อหน้าก่อน และเปลี่ยนมาใช้ข้อมูลทั้งหมดเมื่อการโหลดข้อมูลทั้งหมดเสร็จสิ้น
+
+----------------------------------------------------------------------------------------
