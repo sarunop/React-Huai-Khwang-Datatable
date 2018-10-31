@@ -79,10 +79,18 @@ class Page extends Component {
         }
     }
 
+    deleteBranch = (res) => {
+        if (res.data.status) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     render() {
         return (
             <div id="coverTable">
-                <Table settingTable={this.state.settingTable} />
+                <Table settingTable={this.state.settingTable} onClickDelete={this.deleteBranch} />
             </div>
         )
     }

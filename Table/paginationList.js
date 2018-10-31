@@ -1,12 +1,19 @@
 import React, { Component } from 'react';
+
 class PaginationList extends Component {
+
     pagination() {
+
+        // console.log(this.props.paginationList)
         let { Pagination, currentPage, onClickButtonPage } = this.props
+
         let numback = false;
         let numNext = false;
+
         return Pagination.pageNumbers.map((number, index) => {
             let backCurrentPage = currentPage - 2;
             let nextCurrentPage = currentPage + 2;
+
             if (number >= backCurrentPage && number <= nextCurrentPage) {
                 return (
                     <li key={number}
@@ -32,6 +39,7 @@ class PaginationList extends Component {
             }
         });
     }
+
     render() {
         return (this.pagination());
     }
